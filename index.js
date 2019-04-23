@@ -251,7 +251,7 @@ server.get('/reg',(req,res)=>{
     }else{
       pool.query(sql,[null,uname,upwd,phone],(err,result)=>{
         if(err) throw err;
-        res.send({msg:'注册成功'});
+        res.send({msg:'注册成功请前往登录'});
       })
     }
   });
