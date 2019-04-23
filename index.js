@@ -232,6 +232,18 @@ server.get('/reg',(req,res)=>{
   var upwd = req.query.upwd;
   var phone = req.query.phone;
   var sql = 'insert into tea_user values(?,?,?,?)';
+  if(!uname){
+    res.send('账号/用户名不能为空')
+    return
+  }
+  if(!upwd){
+    res.send('密码不能为空')
+    return
+  }
+  if(!phone){
+    res.send('手机号不能为空')
+    return
+  }
   pool.query(sql1,[uname],(err,result)=>{
     if(err) throw err;
     if(result.length>0){
@@ -245,15 +257,15 @@ server.get('/reg',(req,res)=>{
   });
   
 });
-
+//登录
 server.get('/dl',(req,res)=>{
   var uname=req.query.uname;
   var upwd=req.query.upwd;
   if(!uname){
-    return res.send('用户名为空');
+    return res.send('用户名不能为空');
   }
   if(!upwd){
-    return res.send('密码为空');
+    return res.send('密码不能为空');
   }
   var sql='select uname,upwd from tea_user where uname=? and upwd=?';
   pool.query(sql,[uname,upwd],(err,result)=>{
