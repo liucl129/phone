@@ -12,6 +12,11 @@ var pool=mysql.createPool({
   password : process.env.SECRETKEY,
   database : 'app_' + process.env.APPNAME,
   connectionLimit:5
+  // host:"127.0.0.1",
+  // port:3306,
+  // user:"root",
+  // password:"",
+  // database:"tea"
 })
 //3.创建express对象
 var server=express();
@@ -41,6 +46,7 @@ server.use(bodyParser.urlencoded(
 ))
 //4.为express对象绑定监听端口 3000
 server.listen(5050);
+// server.listen(3000);
 //功能三:首页轮播图
 server.get("/imglist",(req,res)=>{
     var rows = [
