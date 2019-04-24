@@ -51,7 +51,7 @@ server.listen(5050);
 server.get("/imglist",(req,res)=>{
     var rows = [
       {id:1,img_url:"img/index/1552879033.png"},
-      {id:2,img_url:"img/index/1552878344.png"},
+      {id:2,img_url:"img/index/1552878344.png"}, 
       
     ];
     res.send({code:1,data:rows});
