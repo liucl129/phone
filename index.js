@@ -3,7 +3,6 @@ const express=require("express");
 const mysql=require("mysql");
 //1.1 引入模块 cors 跨域
 const cors=require("cors");
-
 //2.创建连接池
 var pool=mysql.createPool({
   host     : process.env.MYSQL_HOST,
